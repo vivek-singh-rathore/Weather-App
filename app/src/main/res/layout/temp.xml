@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="weatherData"
+            type="com.example.weatherapp.model.WeatherData" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--            android:text="25 \u2103"-->
+        <TextView
+            android:id="@+id/weatherTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="56dp"
+            android:text="@{weatherData.temp}"
+            android:textSize="34sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:textStyle="bold" />
+
+        <!--            android:text="time"-->
+        <TextView
+            android:id="@+id/weatherTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="@{weatherData.time}"
+            app:layout_constraintEnd_toEndOf="@+id/weatherTemp"
+            app:layout_constraintStart_toStartOf="@+id/weatherTemp"
+            app:layout_constraintTop_toBottomOf="@+id/weatherTemp" />
+
+        <!--            android:text="rain"-->
+        <TextView
+            android:id="@+id/weatherRain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:text="@{weatherData.rain}"
+            app:layout_constraintBottom_toBottomOf="@+id/weatherTemp"
+            app:layout_constraintEnd_toStartOf="@+id/weatherWind"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/weatherTemp"
+            app:layout_constraintTop_toTopOf="@+id/weatherTemp" />
+
+<!--        android:text="wind"-->
+        <TextView
+            android:id="@+id/weatherWind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="44dp"
+            android:text="@{weatherData.wind}"
+            app:layout_constraintBottom_toBottomOf="@+id/weatherRain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/weatherRain" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

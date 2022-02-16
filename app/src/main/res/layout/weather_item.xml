@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="weather"
+            type="com.example.weatherapp.model.WeatherData" />
+        <variable
+            name="itemClickListener"
+            type="com.example.weatherapp.viewmodel.WeatherAdapter.ItemClickListener" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:onClick="@{() ->  itemClickListener.onClick(weather)}"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="2dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <include layout="@layout/weather_data"
+            bind:weather="@{weather}"
+            />
+    </androidx.cardview.widget.CardView>
+</layout>
